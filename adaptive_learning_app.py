@@ -1,4 +1,3 @@
-
 import streamlit as st
 import json
 import networkx as nx
@@ -9,6 +8,7 @@ with open("KnowledgeGraph_ColdChain.json") as f:
     data = json.load(f)
 
 concepts = data["concepts"]
+id_to_name = {c["id"]: c["name"] for c in concepts}
 
 # Create a directed graph
 G = nx.DiGraph()
@@ -31,9 +31,15 @@ st.subheader("Expected Outcomes")
 for out in concept_data["outcomes"]:
     st.markdown(f"- {out}")
 
-# Draw concept map
+# Draw concept map with labels
 st.subheader("Knowledge Graph")
 fig, ax = plt.subplots()
-pos = nx.spring_layout(G)
-nx.draw(G, pos, with_labels=True, arrows=True, node_color='skyblue', node_size=3000, font_size=10, font_weight='bold', ax=ax)
+pos = nx.spring_layout(G, seed=42)
+nx.draw(G, pos, with_labels=True, labels=id_to_name, arrows=True,
+        node_color='skyblue', node_size=3000, font_size=10, font_weight='bold', ax=ax)
+
+# Add hover-like annotations manually (as real hover isn't supported in matplotlib directly)
+for node_id, (x, y) in pos.items():
+    ax.text(x, y + 0.05, id_to_name[node_id], fontsize=9, ha='center', bbox=dict(facecolor='white', alpha=0.6, edgecolor='gray'))
+
 st.pyplot(fig)
