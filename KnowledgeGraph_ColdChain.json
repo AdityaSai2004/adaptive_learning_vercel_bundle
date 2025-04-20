@@ -1,0 +1,86 @@
+{
+    "concepts": [
+        {
+            "id": "C1",
+            "name": "Temperature Sensors",
+            "prerequisites": [],
+            "learning_objectives": [
+                "Understand sensor basics",
+                "Read temperature digitally"
+            ],
+            "outcomes": [
+                "Able to set up a DHT11 with Arduino"
+            ]
+        },
+        {
+            "id": "C2",
+            "name": "GPS Tracking",
+            "prerequisites": [],
+            "learning_objectives": [
+                "Understand GPS signals",
+                "Mock location tracking"
+            ],
+            "outcomes": [
+                "Plot GPS points on dashboard"
+            ]
+        },
+        {
+            "id": "C3",
+            "name": "Gas & Air Quality Sensors",
+            "prerequisites": [
+                "C1"
+            ],
+            "learning_objectives": [
+                "Detect spoiled air conditions using MQ sensors"
+            ],
+            "outcomes": [
+                "Trigger alerts based on thresholds"
+            ]
+        },
+        {
+            "id": "C4",
+            "name": "Real-time Data Transmission",
+            "prerequisites": [
+                "C1",
+                "C2",
+                "C3"
+            ],
+            "learning_objectives": [
+                "Send sensor data to remote dashboard"
+            ],
+            "outcomes": [
+                "Display live values using Blynk/ThingSpeak"
+            ]
+        },
+        {
+            "id": "C5",
+            "name": "Cold Chain Design Thinking",
+            "prerequisites": [
+                "C1",
+                "C2",
+                "C3",
+                "C4"
+            ],
+            "learning_objectives": [
+                "Integrate all concepts into a practical solution"
+            ],
+            "outcomes": [
+                "Design a working model to prevent spoilage"
+            ]
+        },
+        {
+            "id": "C6",
+            "name": "AI-Powered Alerts & Predictions",
+            "prerequisites": [
+                "C4"
+            ],
+            "learning_objectives": [
+                "Predict spoilage using trends",
+                "Set adaptive alerts"
+            ],
+            "outcomes": [
+                "Build smarter notification rules"
+            ]
+        }
+    ]
+}
